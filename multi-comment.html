@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<title>media objects</title>
+</head>
+
+<html>
+<style>
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: 18px sans-serif;
+	vertical-align: baseline;
+}
+
+/*sets display of 'outlook background image' */
+.background {
+	display: inline;
+}
+
+/*sets location of email title over 'outlook background image' */
+.email-title {
+	position: absolute;
+	left: 563px;
+	top: 144px;
+
+}
+
+.wrapper {
+	background: #ffffff;
+	display: inline;
+	position: absolute;
+	max-width: 600px;
+	max-height: 790px;
+	left: 700px;
+	top: 250px;
+}
+
+.hidden {
+	display: none;
+}
+.Media {
+  	display: flex;
+  	align-items: flex-start;
+  	padding: .5em;
+}
+
+.Media-figure {
+  	margin-right: 1em;
+}
+
+.Media-body {
+  	flex: 1;
+}
+
+.small {
+	height: 30px;
+	width: 30px;
+}
+
+.thread {	
+	margin-left: 2em;
+}
+
+.right {
+	float: right;
+}
+
+p, a{
+	margin: 0;
+	font-style: normal;
+	font-size: 12px;
+}
+
+p {
+	margin-top: -1px;
+}
+
+.username {
+	color: #7997A7;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+.username:hover{
+	text-decoration: underline;
+	color: #545456;	
+}
+
+.timestamp {
+	font-size: 10px;
+	color: #808080;
+}
+
+a {
+	text-decoration: none;
+	color: #7997A7;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: #545456;
+}
+
+.divider {
+	background: #7997A7;
+	width: 100%;
+	height:1px;
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
+h3 {
+	font-size: 14px;
+	margin-top: -15px;
+}
+
+h4 {
+	font-size: 14px;
+	color: #545456;
+}
+
+
+/* break points */
+
+@media (max-width: 1200px)
+{
+.background {
+	display: none;
+}
+
+.wrapper {
+	max-width: 600px;
+	max-height: 790px;
+	left: 10px;
+	top: 10px;
+}
+
+.email-title {
+	display: none;
+}
+}
+
+</style>	
+
+<body>
+	<img class="background" src="images/Outlook background.png" alt="outlook">
+	
+	<div class= "email-title">
+		<h2>iRise Notification Center</h2><br>
+		<h3>Daily Digest: 4 new Comments on two projects</h3>
+	</div> <!-- end email title-->
+	
+	<div class="wrapper">
+	
+	<div class="Media">  		
+  		<h1 class="Media-body">Project: 2013-07-05-9000 Studio 54</h1><a class="right" href="https://nautilus.ircorp.com/iRise/dc/projects/summary?path=/projects/Product_x0020_Definition_x0020_Space/Studio_x0020_54/_x0032_013-07-05-9000_x0020_Studio_x0020_54_x0020_-_x0020_IN_x0020_PROGRESS"> Manage project notifications</a>
+	</div> <!--media -->	
+	
+	<div class="Media">  		
+  		<h4 class="Media-body">Chapter: Comment panel open</h4>
+	</div> <!--media -->
+		
+	<div class="Media">
+  		<img class="Media-figure" src="images/bryan.png" alt="BL">
+  		<p class="Media-body"><span class= "username">Bryan Lipson :</span> When a user replies to a previous comment, should the comment box be above or below the previous comment? Currently the first comment box is at the top and that adds to the bottom of the list, however, like in Yammer, I think the coment box for replying should just appear at the end of the current thread. Thoughts? Examples? <br><span class= "timestamp">10/11/2013 11:24am</span></p>
+	</div> <!--media -->
+	
+	<div class="Media thread">
+  		<img class="Media-figure small" src="images/mel.png" alt="MM">
+  		<p class="Media-body">I agree. Putting the box above would be very strange I think as the responce would appear at the end again no? Threaded commenting systems must have some kind of 'standard leyout' and users some kind of expectations. We should find current solutions and adapt/adopt as needed.</p>
+	</div> <!--media thread -->
+	
+		<div class="Media thread">
+  		<img class="Media-figure small" src="images/tad.png" alt="TD">
+  		<p class="Media-body">At the end gets my vote also - thumbs up!</p>
+	</div> <!--media thread -->
+	
+		<div class="Media">
+  		<img class="Media-figure" src="images/bryan.png" alt="BL">
+  		<p class="Media-body">Lets go with Yammer as our baseline and take it from there. Adapt and adopt as necessary.</p>
+	</div> <!--media -->
+	
+	<div>  		
+  		<a href="#"> View comments in browser</a>
+	</div>
+	
+	<div class="divider">
+		
+	</div> <!-- end divider -->
+	
+	<div class="Media">  		
+  		<h1 class="Media-body">Project: New Licensing model v0.4</h1><a class="right" href="https://nautilus.ircorp.com/iRise/dc/projects/summary?path=/projects/Product_x0020_Definition_x0020_Space/New_x0020_licensing_x0020_model_x0020_for_x0020_Studio"> Manage project notifications</a>
+	</div> <!--media -->
+	
+	<div class="Media">  		
+  		<h4 class="Media-body">Chapter: User has exceeded number of allowable machines</h4>
+	</div> <!--media -->	
+	
+		<div class="Media">
+  		<img class="Media-figure" src="images/pete.png" alt="PI"> 
+  		<p class="Media-body">The idea of self-managing your computers came up today and the idea was that a user could 'self-revoke' a machine that had a license attached to it. This way they do not have to bug sys admins should they upgrade a machine and run out of the 3 instances they are allowed. Can anyone think of why this may not be a good way to take this?</p>
+	</div> <!--media -->
+	
+	<div class="Media thread">
+  		<img class="Media-figure small" src="images/tad.png" alt="TD">
+  		<p class="Media-body">Can the system not 'self-manage' this for the users? Just bump off the first machine from the list once they hit the 4th request for a license? That way we have no UI to build and users do not need to even know about the limits of the system?</p>
+	</div> <!--media thread -->
+	
+	<div>  		
+  		<a href="#"> View comments in browser</a>
+	</div>
+	
+	<!-- THIS IS A NEW SECTION -->
+	<div class="hidden">
+	
+	<div class="Media">  		
+  		<h1 class="Media-body">Project: 2013-07-05-9000 Studio 54 - IN PROGRESS</h1><a class="right" href="https://nautilus.ircorp.com/iRise/dc/projects/summary?path=/projects/Product_x0020_Definition_x0020_Space/Studio_x0020_54/_x0032_013-07-05-9000_x0020_Studio_x0020_54_x0020_-_x0020_IN_x0020_PROGRESS"> Manage project notifications</a>
+	</div> <!--media -->	
+		
+	<div class="Media">
+  		<img class="Media-figure" src="images/bryan.png" alt="BL">
+  		<p class="Media-body">When a user replies to a previous comment, should the comment box be above or below the previous comment? Currently the first comment box is at the top and that adds to the bottom of the list, however, like in Yammer, I think the coment box for replying should just appear at the end of the current thread. Thoughts? Examples?</p>
+	</div> <!--media -->
+	
+	<div class="Media thread">
+  		<img class="Media-figure small" src="images/mel.png" alt="MM">
+  		<p class="Media-body">I agree. Putting the box above would be very strange I think as the responce would appear at the end again no? Threaded commenting systems must have some kind of 'standard leyout' and users some kind of expectations. We should find current solutions and adapt/adopt as needed.</p>
+	</div> <!--media thread -->
+	
+		<div class="Media thread">
+  		<img class="Media-figure small" src="images/tad.png" alt="TD">
+  		<p class="Media-body">At the end gets my vote also - thumbs up!</p>
+	</div> <!--media thread -->
+	
+		<div class="Media">
+  		<img class="Media-figure" src="images/bryan.png" alt="BL">
+  		<p class="Media-body">Lets go with Yammer as our baseline and take it from there. Adapt and adopt as necessary.</p>
+	</div> <!--media -->
+	
+	<div>  		
+  		<a href="#"> View comments in browser</a>
+	</div>
+	
+	<div class="divider">
+		
+	</div> <!-- end divider -->
+	
+	<div class="Media">  		
+  		<h1 class="Media-body">Project: New Licensing model v0.4</h1><a class="right" href="#"> Manage project notifications</a>
+	</div> <!--media -->	
+	
+		<div class="Media">
+  		<img class="Media-figure" src="images/pete.png" alt="PI">
+  		<p class="Media-body">The idea of self-mamaging your computers came up today and the idea was that a user could 'self-revoke' a machine that had a license attached to it. This way they do not have to bug sys admins should they upgrade a machine and run out of the 3 instances they are allowed. Can anyone think of why this may not be a good way to take this?</p>
+	</div> <!--media -->
+	
+	<div class="Media thread">
+  		<img class="Media-figure small" src="images/tad.png" alt="TD">
+  		<p class="Media-body">Can the system not 'self-manage' this for the users? Just bump off the first machine from the list once they hit the 4th request for a license? That way we have no UI to build and users do not need to even know about teh limits of the system?</p>
+	</div> <!--media thread -->
+	
+	<div>  		
+  		<a href="#"> View comments in browser</a>
+	</div>
+	
+	</div> <!-- end hidden -->
+	
+	</div> <!--end wrapper -->	
+	
+</body>
+</html>

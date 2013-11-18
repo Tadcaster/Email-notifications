@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<title>media objects</title>
+</head>
+
+<html>
+<style>
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+   Resets all styles to a baseline for all browsers
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: 18px sans-serif;
+	vertical-align: baseline;
+}
+
+/*sets display of 'outlook background image' */
+.background {
+	display: inline;
+}
+
+/*sets location of email title over 'outlook background image' */
+.email-title {
+	position: absolute;
+	left: 563px;
+	top: 144px;
+}
+
+/*sets style and position for comment content */
+.wrapper {
+	background: #ffffff;
+	display: inline;
+	position: absolute;
+	max-width: 600px;
+	max-height: 790px;
+	left: 700px;
+	top: 250px;
+}
+
+/*Hides longer thread html - hack! */
+.hidden {
+	display: none;
+}
+
+.Media {
+  	display: flex;
+  	align-items: flex-start;
+  	padding: .5em;
+}
+
+.Media-figure {
+  	margin-right: 1em;
+}
+
+
+.Media-body {
+  	flex: 1;
+}
+
+/*sets smaller size for threaded comment avatar */
+.small {
+	height: 30px;
+	width: 30px;
+}
+
+/*sets margin indent for threaded comments */
+.thread {	
+	margin-left: 2em;
+}
+
+/*floats 'settings icon' and 'Manage notifications' link */
+.right {
+	float: right;
+}
+
+/*sets styling for paragraphs and anchors */
+p, a, .manage-text{
+	margin: 0;
+	font-style: normal;
+	font-size: 12px;
+}
+
+/*sets overide of negative top margin for paragraphs */
+p {
+	margin-top: -1px;
+}
+
+/*sets color and size for username */
+.username a{
+	font-weight: bold;
+}
+
+/*sets color and size for username hover state */
+.username:hover{
+	text-decoration: underline;
+	color: #545456;	
+}
+
+/*sets color and size for Comment timestamp */
+.timestamp {
+	font-size: 10px;
+	color: #808080;
+}
+
+/*sets color and size for anchors */
+a {
+	text-decoration: none;
+	color: #7997A7;
+}
+
+/*sets hover style for anchors */
+a:hover {
+	text-decoration: underline;
+	color: #545456;
+}
+
+/*displays horizontal line at end of a comment thread */
+.divider {
+	background: #7997A7;
+	width: 100%;
+	height:1px;
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
+/*sets color and size for project name link */
+h1 a{
+	font-size: 16px;
+	color: black;
+}
+
+/*sets color and size for email title */
+h3 {
+	font-size: 14px;
+	margin-top: -15px;
+}
+
+/*sets color and size for page title */
+h4 a{
+	font-size: 14px;
+	color: #545456;
+}
+
+/*hides the settings icon from the 'outlook' view */
+.settings {
+	display: none;
+}
+
+/*This is the Comment color tag rendered as a vertical div */
+.color {
+	margin-left: -13px;
+	margin-right: 5px;
+	display: inline;
+	width: 6px;
+	height: 50px;
+	background: #0000FF;
+}
+
+/* break point at 1200 pixels - moves out of the 'outlook' layout and into amore 'mobile friendly' layout*/
+
+@media (max-width: 1200px)
+{
+/*hiding the outlook background image */
+.background {
+	display: none;
+}
+
+/*moving the title top left and restyling it */
+.email-title {
+	background: #545456;
+	color: #EFEFEF;
+	width: 100%;
+	padding-bottom: 10px;
+	left: 0px;
+	top: 0px;
+	padding-top: 8px;
+	padding-left: 5px;
+	text-overflow: ellipsis;
+}
+
+/*repositioning all of the Comment content top left under Email title*/
+.wrapper {
+	max-width: 600px;
+	max-height: 790px;
+	left: 10px;
+	top: 65px;
+}
+
+/*showing the settings icon within a square div */
+.settings {
+	display: inline;
+	padding: 2px;
+	background: #7997A7;
+	border-radius: 2px;
+}
+
+/*hover state for settings icon div */
+.settings:hover {
+	background: #545456;
+}
+
+/*positioning the settings icon */
+.icon {
+	position: relative;
+	top: 3px;
+}
+
+/*hiding the 'Manage notifications' link */
+.manage-text {
+	display: none;
+}
+}
+
+
+/* NOTES 
+ Added new class .settings and .manage-text to control the change of the 'Manage notifications' text into an icon
+ added this class to a <span> at the end of the H1 class project title line
+ also added some positioning and color events to the media query to make the email title more mobile friendly and none 'outlook' specific*/
+
+</style>
+
+<!-- be sure to update all of the URLs to the test project for this new model-->	
+
+<body>
+	<img class="background" src="images/Outlook background.png" alt="outlook"><!--this is the Outlook background image -->
+	
+	<div class= "email-title">
+		<h2>iRise Notification Center</h2><br><!--From: -->
+		<h3>iRise: Tad Ford commented on 'Homepage - login' in 'New App Prototype'</h3><!--Email title -->
+	</div> <!-- end email title-->
+	
+	<div class="wrapper"><!--content wrapper for positioning during media query -->
+	
+	<div class="Media"><!--Project title / Manage notifications link / Setting icon-->  		
+  		<h1 class="Media-body"><a href="https://nautilus.ircorp.com/iRise/dc/projects/summary?path=/projects/Product_x0020_Definition_x0020_Space/Definition_x0020_Center/New_x0020_App_x0020_Prototype">New App Prototype</h1></a><a class="right" href="https://nautilus.ircorp.com/iRise/dc/projects/summary?path=/projects/Product_x0020_Definition_x0020_Space/Definition_x0020_Center/New_x0020_App_x0020_Prototype"> <span class="manage-text">Manage project notifications</span><div class="settings">Settings</div></a>
+	</div> <!--media -->	
+	
+	<div class="Media"><!--Page title -->  		
+  		<h4 class="Media-body"><a href="https://nautilus.ircorp.com/iRise/player/render?_project_key_=97424316a3db4d03aca0df5005f86932&_target_key_=54670f0e75cb4ad09314080aed5e4633&inDocumentView=SIMULATION&windowReference=__window__0&_toolBarState=showToolbars">Comments on : Homepage-login</h4></a>
+	</div> <!--media -->
+		
+	<div class="Media"><!--Comment content: Avatar / Username / Comment content / Timestamp -->
+  		<img class="Media-figure" src="images/tad.png" alt="TF">
+  		<div class="color">
+  		</div>
+  		<p class="Media-body"><span class="username"><a href="https://nautilus.ircorp.com/iRise/dc/users/profile?username=pford">Tad Ford</span></a> : Vivamus eleifend, neque in tempus interdum, magna erat semper nibh, eget scelerisque enim elit id massa. Donec venenatis, augue in tempus sagittis, massa diam molestie mauris, dapibus lobortis leo tellus nec velit. Nulla ac sagittis sapien. Sed in consectetur ipsum. Aenean accumsan tincidunt tortor gravida dictum. Donec et tincidunt diam. Pellentesque ut faucibus augue. Phasellus eget tempus felis, vitae bibendum lectus. Morbi vel consequat lectus. Donec id risus rutrum, faucibus dolor vitae, tincidunt mauris?  <br><span class= "timestamp">10/11/2013 11:24am</span><br><a href="https://nautilus.ircorp.com/iRise/player/render?windowReference=__window__0&inDocumentView=SIMULATION&_project_key_=b7b72615d4ee41a388748a60631ddf39#playerState={+destination%3A+%27a4561b7bf43e48918a7a5ffde75af831%27%2C+params+%3A+{+_project_key_%3A+%27b7b72615d4ee41a388748a60631ddf39%27%2C+inDocumentView%3A+false++}+}">View in browser</a></p>
+	</div> <!--media -->
+	
+
+	</div> <!--end wrapper -->	
+	
+</body>
+</html>
