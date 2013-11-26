@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<title>media objects</title>
+</head>
+
+<html>
+<style>
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+   Resets all styles to a baseline for all browsers
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: 18px sans-serif;
+	vertical-align: baseline;
+}
+
+/*sets display of 'outlook background image' */
+.background {
+	display: inline;
+}
+
+/*sets location of email title over 'outlook background image' */
+.email-title {
+	position: absolute;
+	left: 563px;
+	top: 144px;
+}
+
+/*sets style and position for comment content */
+.wrapper {
+	display: inline;
+	position: absolute;
+	max-height: 790px;
+	left: 700px;
+	top: 250px;
+}
+
+/*sets style for the card */
+.card{
+	position: relative;
+	padding: 10px;
+	border: 1px solid #cccccc;
+	margin-top:15px;
+	background: #ffffff;
+	max-width: 600px;
+}
+
+.Media {
+  	display: flex;
+  	align-items: flex-start;
+  	padding: .5em;
+}
+
+.Media-figure {
+  	margin-right: 1em;
+}
+
+.Media-body {
+  	flex: 1;
+}
+
+.small {
+	height: 30px;
+	width: 30px;
+}
+
+/* this is creating a line */
+.line {
+	height: 1px;
+	width: 100%;
+	border-bottom: 1px solid #cccccc;
+	margin-bottom: 10px;
+}
+
+/*sets smaller size for threaded comment avatar */
+.small {
+	height: 30px;
+	width: 30px;
+}
+
+/*sets margin indent for threaded comments */
+.thread {	
+	margin-left: 2em;
+}
+
+/*floats 'settings icon' and 'Manage notifications' link */
+.right {
+	float: right;
+}
+
+/*sets styling for paragraphs and anchors */
+p, a, .manage-text{
+	margin: 0;
+	font-style: normal;
+	font-size: 12px;
+}
+
+/*sets overide of negative top margin for paragraphs */
+p {
+	margin-top: -5px;
+	letter-spacing:.02em;
+}
+
+/*sets color and size for username hover state */
+.username:hover{
+	text-decoration: underline;
+	color: #545456;	
+}
+
+/*sets color and size for Comment timestamp */
+.timestamp {
+	font-size: 11px;
+	color: #808080;
+}
+
+/*sets color and size for anchors */
+a {
+	text-decoration: none;
+	color: #2d71ab;
+	display: inline;
+}
+
+/*sets hover style for anchors */
+a:hover {
+	text-decoration: underline;
+	color: #545456;
+}
+
+/*displays horizontal line at end of a comment thread */
+.divider {
+	background: #7997A7;
+	width: 100%;
+	height:1px;
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
+/*sets color and size for project name link */
+h1 a{
+	font-size: 16px;
+}
+
+/*sets color and size for email title */
+h3 {
+	font-size: 14px;
+	margin-top: -15px;
+}
+
+/*sets color and size for page title */
+h4 a{
+	font-size: 14px;
+}
+
+h4 {
+	font-size: 14px;
+}
+
+/*alt style for manage link text */
+.manage-text a{
+	color:#999999;
+}
+
+/*This is the Comment color tag */
+.color {
+	display: inline-block;
+	position:relative;
+	left: 65px;
+	top: -17px;
+	font-size: 10px;
+	padding: 4px 4px 2px 4px;
+	min-width: 30px;
+}
+
+.blue {
+	background: blue;
+	color: white;
+	text-align: center;
+}
+
+.green {
+	background: green;
+	color: white;
+	text-align: center;
+}
+
+.red {
+	background: red;
+	color: white;
+	text-align: center;
+}
+
+.tag {
+	display: inline-block;
+	position: relative;
+	margin-left: 4.3em;
+}
+
+/* break point at 1200 pixels - moves out of the 'outlook' layout and into amore 'mobile friendly' layout*/
+
+@media (max-width: 1200px)
+{
+	
+/*hiding the outlook background image */
+.background {
+	display: none;
+}
+
+/*moving the title top left and restyling it */
+.email-title {
+	background: #545456;
+	color: #EFEFEF;
+	width: 100%;
+	padding-bottom: 10px;
+	left: 0px;
+	top: 0px;
+	padding-top: 8px;
+	padding-left: 5px;
+	text-overflow: ellipsis;
+}
+
+/*repositioning all of the Comment content top left under Email title*/
+.wrapper {
+	height: 100%;
+	width: 100%;
+	left: 0px;
+	top: 56px;
+	background: #f4f7fb;
+}
+
+/*repositioning and adding margin to the 'cards' */
+.card{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+/*adding a margin to the Manage link*/
+.manage-text {
+	margin-left: 10px;
+}
+}
+
+</style>
+
+<!-- be sure to update all of the URLs to the test project for this new model-->	
+
+<body>
+	<img class="background" src="images/Outlook background.png" alt="outlook"><!--this is the Outlook background image -->
+	
+	<div class= "email-title">
+		<h2>iRise Notification Center</h2><br><!--From: -->
+		<h3>iRise: The Notification Center Daily Digest</h3><!--Email title -->
+	</div> <!-- end email title-->
+	
+<div class="wrapper"><!--content wrapper for positioning during media query -->
+	
+<div class="card">
+		
+	<!-- this is a single comment -->
+	
+	<div class="Media"><!--Project title-->  		
+  		<h1 class="Media-body"><a href="#">New App Prototype</h1></a> 
+	</div> <!--media -->	
+	
+	<div class="Media"><!--Page title -->  	
+  		<h4 class="Media-body">Comment added to Button 3 on <a href="#">Homepage-login</h4></a>
+	</div> <!--media -->
+		
+	<div class="Media"><!--Comment content: Avatar / Username / Comment content / Timestamp -->
+  		<img class="Media-figure" src="images/tad.png" alt="TF">
+  		<p class="Media-body"><span class="username"><a href="#">Tad Ford</span></a> : Pellentesque arcu purus, facilisis ac sapien non, congue ultrices nisl. Nulla eget malesuada eros. Maecenas nec interdum augue. Suspendisse vel mauris sit amet est pretium auctor. Suspendisse faucibus mi in fringilla dignissim. Nullam elementum eu augue vel vehicula. Nulla iaculis enim nisi, et pharetra magna commodo a. In faucibus sapien non varius placerat. Praesent nec consectetur felis<br><span class= "timestamp">10/11/2013 11:24am</span></p>
+	</div> <!--media -->
+	
+	<div class="tag">
+		<p>Color tag : </p><div class="color blue">Blue</div>
+	</div> <!-- end tag-->
+	
+	<!-- this is a single comment -->
+	
+	<div class="line">
+		
+	</div> <!-- end line -->
+	
+	<div class="Media"><!--Page title -->  	
+  		<h4 class="Media-body">Comment added to <a href="#">Homepage-login</h4></a>
+	</div> <!--media -->
+		
+	<div class="Media"><!--Comment content: Avatar / Username / Comment content / Timestamp -->
+  		<img class="Media-figure" src="images/mel.png" alt="MM">
+  		<p class="Media-body"><span class="username"><a href="#">Melissa Mueller</span></a> : Pellentesque arcu purus, facilisis ac sapien non, congue ultrices nisl. Nulla eget malesuada eros. Maecenas nec interdum augue. Suspendisse vel mauris sit amet est pretium auctor. Suspendisse faucibus mi in fringilla dignissim. Nullam elementum eu augue vel vehicula. Nulla iaculis enim nisi, et pharetra magna commodo a. In faucibus sapien non varius placerat. Praesent nec consectetur felis<br><span class= "timestamp">10/11/2013 11:24am</span></p>
+	</div> <!--media -->
+	
+	<div class="tag">
+		<p>Color tag : </p><div class="color green">Green</div>
+	</div> <!-- end tag-->
+	
+	<div class="Media thread"><!--Comment content: Avatar / Username / Comment content / Timestamp -->
+  		<img class="Media-figure small" src="images/pete.png" alt="PI">
+  		<p class="Media-body"><span class="username"><a href="#">Peter Indelicato</span></a> : Pellentesque arcu purus, facilisis ac sapien non, congue ultrices nisl. Nulla eget malesuada eros. Maecenas nec interdum augue. Suspendisse vel mauris sit amet est pretium auctor. Suspendisse faucibus mi in fringilla dignissim. Nullam elementum eu augue vel vehicula. Nulla iaculis enim nisi, et pharetra magna commodo a. In faucibus sapien non varius placerat. Praesent nec consectetur felis<br><span class= "timestamp">10/11/2013 11:24am</span></p>
+	</div> <!--media -->
+	
+</div> <!-- end card -->
+	    
+	<div class="Media manage-text">
+	   	<a href"#" >Manage notifications for this project</a>
+	</div> <!-- end Media manage-text-->
+
+	<!-- End of the single comment -->
+
+<div class="card">
+<!-- this is a single comment -->
+	<div class="Media"><!--Project title-->  		
+  		<h1 class="Media-body"><a href="#">iPhone Money app</h1></a> 
+	</div> <!--media -->	
+	
+	<div class="Media"><!--Page title -->  	
+  		<h4 class="Media-body">Comment added to Section 42 on <a href="#">My accounts</h4></a>
+	</div> <!--media -->
+		
+	<div class="Media"><!--Comment content: Avatar / Username / Comment content / Timestamp -->
+  		<img class="Media-figure" src="images/bryan.png" alt="BL">
+  		<p class="Media-body"><span class="username"><a href="#">Bryan Lipson</span></a> : Pellentesque arcu purus, facilisis ac sapien non, congue ultrices nisl. Nulla eget malesuada eros. Maecenas nec interdum augue. Suspendisse vel mauris sit amet est pretium auctor. Suspendisse faucibus mi in fringilla dignissim. Nullam elementum eu augue vel vehicula. Nulla iaculis enim nisi, et pharetra magna commodo a. In faucibus sapien non varius placerat. Praesent nec consectetur felis<br><span class= "timestamp">10/11/2013 11:24am</span></p>
+	</div> <!--media -->
+	
+	<div class="tag">
+		<p>Color tag : </p><div class="color red">Red</div>
+	</div> <!-- end tag-->	
+
+</div> <!-- end card -->
+
+	<div class="Media manage-text">
+	   	<a href"#" >Manage notifications for this project</a>
+	</div> <!-- end Media manage-text-->
+
+	<!-- End of the single comment -->
+
+</div> <!--end wrapper -->	
+	
+</body>
+</html>
